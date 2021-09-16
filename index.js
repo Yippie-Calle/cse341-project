@@ -33,7 +33,9 @@ app
   // For view engine as hbs (Handlebars)
   //.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'})) // For handlebars
   //.set('view engine', 'hbs')
-  .use(bodyParser({ extended: false })) // For parsing the body of a POST
+  .use(bodyParser({
+    extended: false
+  })) // For parsing the body of a POST
   .use('/ta01', ta01Routes)
   .use('/ta02', ta02Routes)
   .use('/ta03', ta03Routes)
@@ -47,6 +49,9 @@ app
   })
   .use((req, res, next) => {
     // 404 page
-    res.render('pages/404', { title: '404 - Page Not Found', path: req.url });
+    res.render('pages/404', {
+      title: '404 - Page Not Found',
+      path: req.url
+    });
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
